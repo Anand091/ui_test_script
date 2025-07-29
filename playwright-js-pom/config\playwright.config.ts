@@ -1,12 +1,7 @@
-import { PlaywrightTestConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
-const config: PlaywrightTestConfig = {
-  testDir: '../tests',
-  timeout: 30000,
+export default defineConfig({
   use: {
-    headless: true,
-    viewport: { width: 1280, height: 720 }
-  }
-};
-
-export default config;
+    baseURL: 'https://invoice-financing-portal.services.dpw.us.virtusa.dev/?tenant=xbank', // Set the base URL here
+  },
+});
