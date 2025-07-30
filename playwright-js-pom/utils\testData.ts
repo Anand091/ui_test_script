@@ -1,5 +1,8 @@
-export const TestData = {
-  baseURL: 'https://invoice-financing-portal.services.dpw.us.virtusa.dev/?tenant=xbank',
-  username: 'peter@nestle.com',
-  password: 'Scb@1234',
+export const testData = {
+  validUsername: 'peter@nestle.com',
+  validPassword: 'Scb@1234',
+  invalidUsername: 'invalid@example.com',
+  invalidPassword: 'InvalidPassword',
+  eligibleBatchId: 'eligible-batch-id',
+  invalidVesselIdBatch: 'invalid-vessel-id-batch',
 };
