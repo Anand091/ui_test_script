@@ -17,4 +17,4 @@ playwright-js-pom/
 ├── config/
 │ └── playwright.config.ts
 ├── .env
-└── README.md given this string input, we need to parse this llm response and save it to the porject directory.
+└── README.md
