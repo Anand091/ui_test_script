@@ -1,18 +1,23 @@
-import { Page } from '@playwright/test';
-import { BasePage } from './base.page';
+import { expect, Page } from '@playwright/test';
 
-export class LoginPage extends BasePage {
+export class LoginPage {
+  readonly page: Page;
+  readonly usernameField = this.page.getByRole('textbox', { name: 'something like this example@' });
+  readonly passwordField = this.page.getByRole('textbox', { name: 'Password' });
+  readonly loginButton = this.page.getByRole('button', { name: 'Login' });
+  readonly errorMessage = this.page.locator('#error-message'); // TODO: Replace with actual error message selector
+
   constructor(page: Page) {
-    super(page);
+    this.page = page;
   }
 
-  async gotoLoginPage() {
-    await this.navigate(TestData.baseURL);
+  async goto() {
+    await this.page.goto('https://invoice-financing-portal.services.dpw.us.virtusa.dev/?tenant=xbank');
   }
 
-  async login(username: string, password: string) {
-    await this.page.getByRole('textbox', { name: 'something like this example@' }).fill(username);
-    await this.page.getByRole('textbox', { name: 'Password' }).fill(password);
-    await this.page.getByRole('button', { name: 'Login' }).click();
+  async login(username, password) {
+    await this.usernameField.fill(username);
+    await this.passwordField.fill(password);
+    await this.loginButton.click();
   }
 }
